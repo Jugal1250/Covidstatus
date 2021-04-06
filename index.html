@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>    
+    <script src="javascript/script.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl" class="bg-success">
+    <div class="container">
+        <div class="jumbotron py-3" >
+          <img src="img/logo.png" alt="logo" class="center-block">
+            <h1 class="text-center">{{title}}</h1>
+            <p class="pt-3">About 80% of confirmed cases recover from the disease
+                without any serious complications. However, one out
+                of every six people who gets COVID-19 can become
+                seriously ill* and develop difficulty in breathing. In more
+                severe cases, infection can cause severe pneumonia
+                and other complications which can be treated only at
+                higher level facilities (District Hospitals and above). In a
+                few cases it may even cause death.
+            </p>
+            <div class="row text-center ">
+                <div class="col-md-4">
+                    <div class="card bg-warning text-white">
+                        <div class="card-body">
+                            <h3>Confirmed Cases</h3>
+                            <h3>{{all_data.confirmed.value}}</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-success text-white">
+                        <div class="card-body">
+                            <h3>Recovered Cases</h3>
+                            <h3>{{all_data.recovered.value}}</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-danger text-white">
+                        <div class="card-body">
+                            <h3>Deaths Cases</h3>
+                            <h3>{{all_data.deaths.value}}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input type="text" 
+             class="form-control mt-4" 
+             placeholder="Enter country name" 
+             ng-model="c"
+             ng-change="get_c_data()"
+             >
+             <h1 class="text-center mt-4 text-uppercase">{{c}}</h1>
+             <div class="row text-center mt-4 " ng-if="c_data">
+                <div class="col-md-4">
+                    <div class="card bg-warning text-white">
+                        <div class="card-body">
+                            <h3>Confirmed Cases</h3>
+                            <h3>{{c_data.confirmed.value}}</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-success text-white">
+                        <div class="card-body">
+                            <h3>Recovered Cases</h3>
+                            <h3>{{c_data.recovered.value}}</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-danger text-white">
+                        <div class="card-body">
+                            <h3>Deaths Cases</h3>
+                            <h3>{{c_data.deaths.value}}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     
+</body>
+</html>
